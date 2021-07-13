@@ -1,0 +1,56 @@
+\documentclass[a4paper, 11pt]{scrartcl}
+
+\usepackage[english]{babel}
+\usepackage{csquotes}
+\usepackage[right=4.5cm]{geometry}
+\usepackage{setspace}
+\usepackage{hyperref}
+
+\onehalfspacing
+
+%%%%   ARGUMENTS
+\newenvironment{argument}{
+	\begin{flushleft} \vspace{5mm}
+		\begin{tabular}{p{1em} p{0.08\linewidth} p{0.75\linewidth}}
+		}
+		{
+		\end{tabular}
+	\end{flushleft}
+}
+
+\newcommand{\premise}[2]{& #1: & #2 \\[0.4em]}
+\newcommand{\premiseEq}[3]{& #1: \newline {\footnotesize =#2} & #3 \\[0.4em]}
+\newcommand{\intermediate}[3]{& #1: & \emph{Therefore}: #2 (#3) \\[0.4em]}
+\newcommand{\conclusion}[3]{\cline{2-3} \\[-0.8em] & #1: & \emph{Therefore}: #2 (#3)\\[0.4em]}
+
+
+\title{Your Title}
+\author{Your Name}
+
+\makeindex
+
+\begin{document}
+
+\maketitle
+\begin{center}
+	\small (XXXX words)
+\end{center}
+
+\section{This Is a Simple Template}
+
+This is a template for your essay. It is an ordinary \texttt{scrartcl} document with a little environment for arguments and a formatting that makes corrections easier for us. You can, but do not have to use it. Feel free to adopt it to your needs.
+
+\section{Argument Example}
+
+\begin{argument}
+	\premise{P1}{This is the first premise.}
+	\premise{P2}{And this is the second premise.}
+	\premiseEq{P3}{C3}{The third premise is equal to the conclusion of another argument.}
+	\intermediate{C1}{This is our first intermediate conclusion, which follows from P1, P2, and P3.}{P1 -- P3}
+	\premise{P4}{The fourth premise.}
+	\intermediate{C2}{And the second intermediate conclusion, following from C1 and P4.}{C1, P4}
+	\premise{P5}{The final premise.}
+	\conclusion{C}{Finally, our conclusion.}{C2, P5}
+\end{argument}
+
+\end{document}
